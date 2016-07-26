@@ -1,0 +1,71 @@
+{
+  "name": "Essence-Boilerplate",
+  "version": "1.0.0",
+  "description": "A minimal boilerplate for websites using cli tools only without any bloated packers. A server with gzip enabled ready to be deployed to Heroku is included.",
+  "main": "server.js",
+  "scripts": {
+    "build": "npm-run-all compile:*",
+    "compile:assets": "mkdir -p dist/assets && rm -rf dist/assets/**/* && cp -R src/assets/* dist/assets",
+    "compile:jade": "jade -P -o dist src/*.jade",
+    "compile:js": "browserify src/main.js -o dist/main.js",
+    "compile:pcss": "postcss -c ./postcss.json",
+    "watch": "npm-run-all compile:* --parallel watch:*",
+    "watch:assets": "onchange 'src/assets/*' -- npm run compile:assets",
+    "watch:jade": "onchange 'src/**/*.jade' -- npm run compile:jade",
+    "watch:js": "onchange 'src/**/*.js' -- npm run compile:js",
+    "watch:pcss": "onchange 'src/**/*.pcss' -- npm run compile:pcss",
+    "watch:server": "live-server dist",
+    "test": "mocha --compilers js:babel-core/register test/index.js"
+  },
+  "keywords": [
+    "jade",
+    "babel",
+    "postcss",
+    "live-server"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "6.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "chai": "^3.5.0",
+    "cssnano": "^3.7.3",
+    "flexboxgrid": "^6.3.0",
+    "jade": "^1.11.0",
+    "live-server": "^1.0.0",
+    "mocha": "^2.5.3",
+    "normalize.css": "^4.2.0",
+    "npm-run-all": "^2.3.0",
+    "onchange": "^2.5.0",
+    "postcss-cli": "^2.5.2",
+    "postcss-css-variables": "^0.5.1",
+    "postcss-import": "^8.1.2",
+    "postcss-nested": "^1.0.0",
+    "wallabify": "0.0.14"
+  },
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": ["es2015", "stage-0"]
+        }
+      ]
+    ]
+  },
+  "standard": {
+    "globals": [ "describe", "it" ]
+  }
+}

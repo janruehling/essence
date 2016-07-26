@@ -1,0 +1,14 @@
+{
+    "use": ["autoprefixer", "postcss-import", "postcss-nested", "postcss-css-variables", "cssnano"],
+    "input": "src/main.pcss",
+    "output": "dist/main.css",
+    "local-plugins": true,
+    "autoprefixer": {
+        "browsers": "> 5%"
+    },
+    "postcss-css-variables": {
+      "variables": {
+        "--blue": "#21406a"
+      }
+    }
+}

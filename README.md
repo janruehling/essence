@@ -3,7 +3,7 @@ A highly opinionated boilerplate featuring Jade, PostCSS, Babel, Browserify, Wal
 
 ## Usage
 ```
-git clone
+git clone git@github.com:janruehling/essence.git
 npm install
 npm run watch
 ```

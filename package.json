@@ -1,8 +1,16 @@
 {
-  "name": "Essence-Boilerplate",
+  "name": "essence",
   "version": "1.0.0",
   "description": "A minimal boilerplate for websites using cli tools only without any bloated packers. A server with gzip enabled ready to be deployed to Heroku is included.",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janruehling/essence.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/janruehling/essence/issues",
+    "email" : "janruehling@gmail.com"
+  },
   "scripts": {
     "build": "npm-run-all compile:*",
     "compile:assets": "mkdir -p dist/assets && rm -rf dist/assets/**/* && cp -R src/assets/* dist/assets",
@@ -23,8 +31,8 @@
     "postcss",
     "live-server"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Jan Ruehling <janruehling@gmail.com>",
+  "license": "MIT",
   "engines": {
     "node": "6.3.0"
   },
